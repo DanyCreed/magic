@@ -1,0 +1,31 @@
+Tipo / mana/ nombre /habilidad /ataque/ defensa /
+1 4 Primadox_urgente 0 4 4 
+1 5 Arana_de_seda 0 2 7 
+1 5 Mandibulatensa 0 6 2
+1 3 Kasis_apaleador 0 2 1 
+1 4 Alfa_de_la_manada_Brezo 0 3 3
+1 2 Cobra_de_loto toque 0 2 1
+1 4 Parra_vengadora 0 4 3
+1 5 Colmillothrag 0 5 3 
+1 4 Arana_Gigante 0 2 4
+1 3 Ave_de_paraiso 0 2 2
+1 6 Hydra_encapuchada 0 5 6 
+1 5 Guerreros_gato 0 5 4
+1 8 Drake_invernal 0 7 8 
+1 4 Venus_mortal 0 3 3
+1 3 Enjambre_maldito 0 3 2
+1 4 Enredadera_drenadora 0 4 3 
+1 3 Escorpion_de_asalto 0  2 2 
+1 4 Gato_guadana 0 3 3 
+1 8 Elefante_sombrio 0 8 8 
+1 8 Hydra_del_pantano 0 8 9 
+1 2 Hongo_parasito toque 0 1 1
+1 3 Flor_del_sol_rojo toque 0 3 2
+1 4 Serpiente_enredadera 0 4 3
+1 6 Gato_acorazado 0 4 6 
+1 4 Manada_de_sabuesos 0 4 4
+1 3 Murcielago_frutero 0 2 2 
+1 2 Elfo_sentinela 0 1 1 
+1 7 Gran_Hydra_de_rio 0 6 7 
+1 8 El_ultimo_de_los_salvajes 0 7 8 
+1 8 Naturaleza_muerta 0 7 8 

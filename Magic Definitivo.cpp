@@ -92,20 +92,20 @@ void imprimir_biblioteca() {
 void cargar_biblioteca() {
 	Carta registro_de_carta;
 	Habilidad registro_habilidad;
-/*
-	ifstream leer_archivo("habilidades.txt");
-	while (leer_archivo >> registro_habilidad.id >> registro_habilidad.nombre) {
+
+	ifstream leer_habilidades("habilidades.txt"); //se leen habilidades del archivo txt.
+	while (leer_habilidades >> registro_habilidad.id >> registro_habilidad.nombre) {
 		habilidades.push_back(registro_habilidad);
 	}
-	imprimir_habilidades();
-	leer_archivo.close();
-	*/
-	ifstream leer_biblioteca("biblioteca.txt");
+	imprimir_habilidades(); //se imprimen las habilidades que se cargaron en el archivo txt.
+	leer_habilidades.close();
+	
+	ifstream leer_biblioteca("biblioteca.txt"); //se lee la bibliote que contiene las cartas en el archivo txt.
 	while (leer_biblioteca >> registro_de_carta.tipoC >> registro_de_carta.mana >> registro_de_carta.nombre >> registro_de_carta.habilidad >> registro_de_carta.ataque >> registro_de_carta.defensa )
 	{
 		biblioteca.push_back(registro_de_carta);
 	}
-	imprimir_biblioteca();
+	imprimir_biblioteca(); //se imprime la biblioteca de cartas que se cargaron en el archivo txt.
 	leer_biblioteca.close();
 	system("PAUSE");
 	exit(0);
@@ -259,32 +259,37 @@ void jugar() {
 		cin >> opcion;
 
 		switch (opcion) {
+
 		case 1:
+
 			cout << "<<<<Jugador 1>>>>" << endl;
 			system("PAUSE");
 			system("cls");
 			opcion = 0;
 			break;
+
 		case 2:
+
 			cout << "<<<<Jugador 2>>>>" << endl;
 			system("PAUSE");
 			system("cls");
 			opcion = 0;
 			break;
+
 		case 3:
+
 			cout << "aqui todavia no hay nada" << endl;
 			system("PAUSE");
 			system("cls");
 			opcion = 0;
 			break;
+
 		}
 	} while (opcion != 4);
 	system("cls");
 }
 
-void administrar()
-{
-
+void administrar(){
 	do {//administrar cartas
 		cargar_biblioteca();//leo el txt y posteriormente obtengo el tamaño
 		mostrar_mazo();
@@ -297,7 +302,9 @@ void administrar()
 		cin >> opcion;
 
 		switch (opcion) {
+
 		case 1:
+
 			pos = carta.size();
 			carta.resize(pos + 1);
 			cout << "<<<<Insertar nueva carta>>>>" << endl;
@@ -321,6 +328,7 @@ void administrar()
 			system("PAUSE");
 			system("cls");
 			break;
+
 		case 2:
 
 			cout << "<<<<Actualizar carta>>>>" << endl;
@@ -331,7 +339,9 @@ void administrar()
 			system("PAUSE");
 			system("cls");
 			break;
+
 		case 3:
+
 			cout << "<<<<Eliminar carta>>>> " << endl;
 			cout << "Dame el nombre a eliminar ";
 			cin >> aux;
@@ -340,16 +350,12 @@ void administrar()
 			system("PAUSE");
 			system("cls");
 			break;
-
-
 		}
-
 	} while (opcion != 4);
 	system("cls");
 }
 
 void gestion() {
-
 	do {//gestion
 		leer_habilidad();//leo el txt y posteriormente obtengo el tamaño
 		mostrar_habilidad();
@@ -363,6 +369,7 @@ void gestion() {
 
 		switch (opcion) {
 		case 1:
+
 			pos = habilidad.size();
 			habilidad.resize(pos + 1);
 			cout << "<<<<Insertar nueva Habilidad>>>>" << endl;
@@ -386,6 +393,7 @@ void gestion() {
 			system("cls");
 			break;
 		case 3:
+
 			cout << "<<<<Eliminar habilidad>>>> " << endl;
 			cout << "Dame el nombre a eliminar ";
 			cin >> aux;
@@ -394,16 +402,49 @@ void gestion() {
 			system("PAUSE");
 			system("cls");
 			break;
-
-
 		}
-
 	} while (opcion != 4);
 	system("cls");
 }
 
-int main() {
+vector<int> posiciones_auxiliar;
+vector<int> mazo;
+int numero_aleatorio = (1 + rand() % mazo.size());
+/*<int> biblioteca; //temporal no poner en el codugo general  */
 
+bool buscar_numero(int numero_aleatorio) {
+	for (int i = 0; i < posiciones_auxiliar.size(); i++) {
+		if (posiciones_auxiliar[i] == numero_aleatorio) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
+int llenar_auxiliar(int argc, char** argv) {
+
+	srand(time(NULL));
+
+	do {
+
+		for (int i = 0;i < mazo.size(); i++) {
+		}
+		while (buscar_numero(numero_aleatorio) == 0) {
+			numero_aleatorio = 1 + rand() % mazo.size();
+		}
+		posiciones_auxiliar.push_back(numero_aleatorio);
+
+	} while (posiciones_auxiliar.size() < biblioteca.size());
+
+	for (int i = 0; i < biblioteca.size(); i++) { // Transfiere las cartas de posiciones_auxiliar al mazo
+		mazo.push_back(biblioteca[posiciones_auxiliar[i]]);
+	}
+	return 0;
+
+}
+
+int main() {
 	do {
 		cout << "<<<<JUEGO MAGIC V1.0>>>>" << endl;
 		cout << "  ---MENU PRINCIPAL---  " << endl;
@@ -439,14 +480,13 @@ int main() {
 		case 6:
 			system("cls");
 			cout << "¡COMING SOON!" << endl;
+			llenar_auxiliar();
 			system("PAUSE");
 			break;
-
 		}
-
 	} while (opcion != 4);
-
 }
+
 
 
 /*void aleatorio() {
